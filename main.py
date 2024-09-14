@@ -3,6 +3,7 @@ Find complete cluster of target species
 """
 
 import sys
+import os
 from src.download_json import download_json
 from src.download_fasta import download_fasta
 from src.uncompress_json import uncompress_json
@@ -15,9 +16,10 @@ def main(target:str = "Streptomyces") -> None:
     '''
     Execute MIBiG search
     '''
-
-    download_json()
-    download_fasta()
+    if not os.path.exists('mibig_json_3.1.tar.gz'):
+        download_json()
+    if not os.path.exists('mibig_prot_seqs_3.1.fasta'):
+        download_fasta()
 
     uncompress_json()
     json_files = get_json_filenames()
