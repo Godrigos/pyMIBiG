@@ -1,6 +1,6 @@
 # pyMIBiG
 
-A small to download and match and save target sequences.
+A small tool to download, match and save target sequences from [MIBiG](https://mibig.secondarymetabolites.org/).
 
 ## License
 
