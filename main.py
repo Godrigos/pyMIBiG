@@ -11,7 +11,7 @@ from src.save_complete_access_codes import save_complete_access_codes
 from src.save_sequences import save_sequences
 from src.console import console
 
-basedir:str = os.path.dirname(__file__)
+basedir: str = os.path.dirname(__file__)
 
 def main(target:str = "Streptomyces") -> None:
     '''
