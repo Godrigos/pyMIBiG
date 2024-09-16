@@ -14,8 +14,8 @@ def save_sequences(target: str, access_codes: str, basedir: str) -> None:
     desired_seqs: list = []
 
     try:
-        with open(f'{basedir}/db/mibig_prot_seqs_3.1.fasta', 'rt', encoding='utf-8') as fasta:
-            for record in SeqIO.parse(fasta, 'fasta'):
+        with open(f'{basedir}/db/mibig_prot_seqs_3.1.fasta', 'rt', encoding='utf-8') as seqs:
+            for record in SeqIO.parse(seqs, 'fasta'):
                 if any(code in record.id for code in access_codes):
                     desired_seqs.append(record)
 

@@ -8,7 +8,7 @@ import requests
 from src.console import console
 from src.constants import FASTA
 
-def download_fasta(basedir: str) -> None:
+def download_seqs(basedir: str) -> None:
     '''
     Download FASTa file.
     '''
