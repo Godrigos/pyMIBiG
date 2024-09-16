@@ -6,7 +6,7 @@ import sys
 from Bio import SeqIO
 from src.console import console
 
-def save_sequences(target: str, access_codes: str) -> None:
+def save_sequences(target: str, access_codes: str, basedir: str) -> None:
     '''
     Save the desired sequences in a FASTa file.
     '''
@@ -14,7 +14,7 @@ def save_sequences(target: str, access_codes: str) -> None:
     desired_seqs: list = []
 
     try:
-        with open('db/mibig_prot_seqs_3.1.fasta', 'rt', encoding='utf-8') as fasta:
+        with open(f'{basedir}/db/mibig_prot_seqs_3.1.fasta', 'rt', encoding='utf-8') as fasta:
             for record in SeqIO.parse(fasta, 'fasta'):
                 if any(code in record.id for code in access_codes):
                     desired_seqs.append(record)

@@ -8,7 +8,7 @@ import tarfile
 from itertools import islice
 from src.console import console
 
-def save_complete_access_codes(target:str) -> list:
+def save_complete_access_codes(target:str, basedir: str) -> list:
     '''
     Create a txt file listing json filenames
     '''
@@ -16,12 +16,13 @@ def save_complete_access_codes(target:str) -> list:
     access_codes: list = []
 
     try:
-        with tarfile.open('db/mibig_json_3.1.tar.gz') as tar:
+        with tarfile.open(f'{basedir}/db/mibig_json_3.1.tar.gz') as tar:
             for member in islice(tar, 1, None):
                 with tar.extractfile(member) as handle:
                     data = json.load(handle)
                     if (data['cluster']['loci']['completeness'] == "complete" and
-                    target in data['cluster']['organism_name']):
+                    target in data['cluster']['organism_name'] and
+                    data['cluster']['minimal'] is False):
                         access_codes.append(data['cluster']['mibig_accession'])
 
         with open(f'{target}_access_codes.txt', 'wt', encoding='utf-8') as  codes:
