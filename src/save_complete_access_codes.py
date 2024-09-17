@@ -24,7 +24,9 @@ def save_complete_access_codes(target:str, basedir: str) -> list:
                     target in data['cluster']['organism_name'] and
                     data['cluster']['minimal'] is False):
                         access_codes.append(data['cluster']['mibig_accession'])
-
+        if not access_codes:
+            console.print('[bold yellow]Your search had no match[/bold yellow]')
+            sys.exit()
         with open(f'{target}_access_codes.txt', 'wt', encoding='utf-8') as  codes:
             codes.write('\n'.join(str(i) for i in access_codes))
         return access_codes
