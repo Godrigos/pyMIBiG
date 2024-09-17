@@ -15,6 +15,6 @@ def get_args() -> argparse.Namespace:
     parser.add_argument('-c', '--completeness', help='Loci completeness.',
         type=str, choices=['complete', 'incomplete', 'Unknown'],
         default='complete')
-    parser.add_argument('-m', '--minimal', help='Minimal annotation.',
-        type=bool, choices=[True, False], default=False)
+    parser.add_argument('-m', '--minimal', action="store_true",
+                        help='Minimal annotation.')
     return parser.parse_args()
