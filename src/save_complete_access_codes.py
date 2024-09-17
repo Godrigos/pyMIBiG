@@ -9,7 +9,8 @@ from itertools import islice
 from src.console import console
 from src.constants import METADATA
 
-def save_complete_access_codes(target:str, basedir: str) -> list:
+def save_complete_access_codes(target:str, basedir: str, completeness: str,
+                               minimal: bool) -> list:
     '''
     Create a txt file listing json filenames
     '''
@@ -21,9 +22,9 @@ def save_complete_access_codes(target:str, basedir: str) -> list:
             for member in islice(tar, 1, None):
                 with tar.extractfile(member) as handle:
                     data = json.load(handle)
-                    if (data['cluster']['loci']['completeness'] == "complete" and
+                    if (data['cluster']['loci']['completeness'] == completeness and
                     target in data['cluster']['organism_name'] and
-                    data['cluster']['minimal'] is False):
+                    data['cluster']['minimal'] is minimal):
                         access_codes.append(data['cluster']['mibig_accession'])
         if not access_codes:
             console.print('[bold yellow]Your search had no match[/bold yellow]')

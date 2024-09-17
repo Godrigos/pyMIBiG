@@ -23,7 +23,8 @@ def main() -> None:
     download_json(basedir)
     download_seqs(basedir)
 
-    access_codes = save_complete_access_codes(args.target, basedir)
+    access_codes = save_complete_access_codes(
+        args.target, basedir, args.completeness, args.minimal)
     save_sequences(args.target, access_codes, basedir)
 
     console.print(
