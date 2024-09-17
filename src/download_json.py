@@ -6,16 +6,16 @@ import os
 import sys
 import requests
 from src.console import console
-from src.constants import JSON
+from src.constants import JSON_LINK, METADATA
 
 def download_json(basedir: str) -> None:
     '''
     Download JSON files tar.gz compressed.
     '''
-    if not os.path.exists(f'{basedir}/db/mibig_json_3.1.tar.gz'):
+    if not os.path.exists(f'{basedir}/db/{METADATA}'):
         console.print('[bold green]Downloading MIBiG metadata...[/bold green]')
         try:
-            resp = requests.get(JSON, stream=True, timeout=60)
+            resp = requests.get(JSON_LINK, stream=True, timeout=60)
             with open(f'{basedir}/db/mibig_json_3.1.tar.gz', mode='wb') as file:
                 for chunk in resp.iter_content(chunk_size=10*1024):
                     file.write(chunk)

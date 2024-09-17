@@ -8,6 +8,7 @@ import io
 from itertools import islice
 from Bio import SeqIO
 from src.console import console
+from src.constants import DATABASE
 
 def save_sequences(target: str, access_codes: str, basedir: str) -> None:
     '''
@@ -17,7 +18,7 @@ def save_sequences(target: str, access_codes: str, basedir: str) -> None:
     desired_seqs: list = []
 
     try:
-        with tarfile.open(f'{basedir}/db/mibig_gbk_3.1.tar.gz') as tar:
+        with tarfile.open(f'{basedir}/db/{DATABASE}') as tar:
             for member in islice(tar, 1, None):
                 with tar.extractfile(member) as handle:
                     seq = SeqIO.read(

@@ -6,18 +6,18 @@ import os
 import sys
 import requests
 from src.console import console
-from src.constants import GBK
+from src.constants import GBK_LINK, DATABASE
 
 def download_seqs(basedir: str) -> None:
     '''
     Download FASTa file.
     '''
-    if not os.path.exists(f'{basedir}/db/mibig_gbk_3.1.tar.gz'):
+    if not os.path.exists(f'{basedir}/db/{DATABASE}'):
         console.print(
             '[bold green]Downloading sequences as GBK...[/bold green]'
             )
         try:
-            resp = requests.get(GBK, stream=True, timeout=60)
+            resp = requests.get(GBK_LINK, stream=True, timeout=60)
             with open(f'{basedir}/db/mibig_gbk_3.1.tar.gz', mode='wb') as file:
                 for chunk in resp.iter_content(chunk_size=10*1024):
                     file.write(chunk)

@@ -7,6 +7,7 @@ import json
 import tarfile
 from itertools import islice
 from src.console import console
+from src.constants import METADATA
 
 def save_complete_access_codes(target:str, basedir: str) -> list:
     '''
@@ -16,7 +17,7 @@ def save_complete_access_codes(target:str, basedir: str) -> list:
     access_codes: list = []
 
     try:
-        with tarfile.open(f'{basedir}/db/mibig_json_3.1.tar.gz') as tar:
+        with tarfile.open(f'{basedir}/db/{METADATA}') as tar:
             for member in islice(tar, 1, None):
                 with tar.extractfile(member) as handle:
                     data = json.load(handle)
