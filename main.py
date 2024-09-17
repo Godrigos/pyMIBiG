@@ -1,4 +1,4 @@
-#!/home/rodrigo/Downloads/mibig/.venv/bin/python
+#!/home/rodrigo/Downloads/pyMIBiG/.venv/bin/python
 """
 Find complete cluster of target species
 """

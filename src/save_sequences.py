@@ -1,8 +1,11 @@
 """
-Save the matched sequences in FASTa format.
+Save the matched sequences in GBK format.
 """
 
 import sys
+import tarfile
+import io
+from itertools import islice
 from Bio import SeqIO
 from src.console import console
 
@@ -14,10 +17,14 @@ def save_sequences(target: str, access_codes: str, basedir: str) -> None:
     desired_seqs: list = []
 
     try:
-        with open(f'{basedir}/db/mibig_prot_seqs_3.1.fasta', 'rt', encoding='utf-8') as seqs:
-            for record in SeqIO.parse(seqs, 'fasta'):
-                if any(code in record.id for code in access_codes):
-                    desired_seqs.append(record)
+        with tarfile.open(f'{basedir}/db/mibig_gbk_3.1.tar.gz') as tar:
+            for member in islice(tar, 1, None):
+                with tar.extractfile(member) as handle:
+                    seq = SeqIO.read(
+                        io.TextIOWrapper(handle),
+                        'genbank')
+                    if any(code in seq.id for code in access_codes):
+                        desired_seqs.append(seq)
 
         SeqIO.write(desired_seqs, f'{target}_complete.fasta', 'fasta')
     except PermissionError:

@@ -34,5 +34,5 @@ def save_complete_access_codes(target:str, basedir: str) -> list:
             )
         sys.exit()
     except FileNotFoundError:
-        console.print(f'[bold red]{tar} not found.[/bold red]')
+        console.print(f'[bold red]{tar.name} not found.[/bold red]')
         sys.exit()
