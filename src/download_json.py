@@ -16,7 +16,7 @@ def download_json(basedir: str) -> None:
         console.print('[bold green]Downloading MIBiG metadata...[/bold green]')
         try:
             resp = requests.get(JSON_LINK, stream=True, timeout=60)
-            with open(f'{basedir}/db/mibig_json_3.1.tar.gz', mode='wb') as file:
+            with open(f'{basedir}/db/{METADATA}', mode='wb') as file:
                 for chunk in resp.iter_content(chunk_size=10*1024):
                     file.write(chunk)
         except PermissionError:

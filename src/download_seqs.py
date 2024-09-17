@@ -18,7 +18,7 @@ def download_seqs(basedir: str) -> None:
             )
         try:
             resp = requests.get(GBK_LINK, stream=True, timeout=60)
-            with open(f'{basedir}/db/mibig_gbk_3.1.tar.gz', mode='wb') as file:
+            with open(f'{basedir}/db/{DATABASE}', mode='wb') as file:
                 for chunk in resp.iter_content(chunk_size=10*1024):
                     file.write(chunk)
         except PermissionError:
