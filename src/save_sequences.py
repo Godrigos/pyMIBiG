@@ -10,7 +10,8 @@ from Bio import SeqIO
 from src.console import console
 from src.constants import DATABASE
 
-def save_sequences(target: str, access_codes: str, basedir: str) -> None:
+def save_sequences(target: str, access_codes: str, basedir: str,
+                   completeness: str) -> None:
     '''
     Save the desired sequences in a FASTa file.
     '''
@@ -27,7 +28,7 @@ def save_sequences(target: str, access_codes: str, basedir: str) -> None:
                     if any(code in seq.id for code in access_codes):
                         desired_seqs.append(seq)
 
-        SeqIO.write(desired_seqs, f'{target}_complete.fasta', 'fasta')
+        SeqIO.write(desired_seqs, f'{target}_{completeness}.fasta', 'fasta')
     except PermissionError:
         console.print(
             '[bold red]Permission to read directory or write file denied.[/bold red]'

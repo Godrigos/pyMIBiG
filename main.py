@@ -25,7 +25,7 @@ def main() -> None:
 
     access_codes = save_complete_access_codes(
         args.target, basedir, args.completeness, args.minimal)
-    save_sequences(args.target, access_codes, basedir)
+    save_sequences(args.target, access_codes, basedir, args.completeness)
 
     console.print(
         '[bold blue]Task completed! Check your result files.[/bold blue]'
