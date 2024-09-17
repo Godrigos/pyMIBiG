@@ -10,18 +10,21 @@ from src.download_seqs import download_seqs
 from src.save_complete_access_codes import save_complete_access_codes
 from src.save_sequences import save_sequences
 from src.console import console
+from src.get_args import get_args
 
 basedir: str = os.path.dirname(__file__)
 
-def main(target:str = "Streptomyces") -> None:
+def main() -> None:
     '''
     Execute MIBiG search
     '''
+    args = get_args()
+
     download_json(basedir)
     download_seqs(basedir)
 
-    access_codes = save_complete_access_codes(target, basedir)
-    save_sequences(target, access_codes, basedir)
+    access_codes = save_complete_access_codes(args.target, basedir)
+    save_sequences(args.target, access_codes, basedir)
 
     console.print(
         '[bold blue]Task completed! Check your result files.[/bold blue]'

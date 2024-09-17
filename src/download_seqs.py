@@ -6,19 +6,19 @@ import os
 import sys
 import requests
 from src.console import console
-from src.constants import FASTA
+from src.constants import GBK
 
 def download_seqs(basedir: str) -> None:
     '''
     Download FASTa file.
     '''
-    if not os.path.exists(f'{basedir}/db/mibig_prot_seqs_3.1.fasta'):
+    if not os.path.exists(f'{basedir}/db/mibig_gbk_3.1.tar.gz'):
         console.print(
-            '[bold green]Downloading sequences as FASTa...[/bold green]'
+            '[bold green]Downloading sequences as GBK...[/bold green]'
             )
         try:
-            resp = requests.get(FASTA, stream=True, timeout=60)
-            with open(f'{basedir}/db/mibig_prot_seqs_3.1.fasta', mode='wb') as file:
+            resp = requests.get(GBK, stream=True, timeout=60)
+            with open(f'{basedir}/db/mibig_gbk_3.1.tar.gz', mode='wb') as file:
                 for chunk in resp.iter_content(chunk_size=10*1024):
                     file.write(chunk)
         except PermissionError:
@@ -27,4 +27,4 @@ def download_seqs(basedir: str) -> None:
         except requests.exceptions.RequestException:
             console.print('[bold red]Connection error or timed out.[/bold red]')
     else:
-        console.print('[bold green]Loading FASTa sequences...[/bold green]')
+        console.print('[bold green]Loading GBK sequences...[/bold green]')
