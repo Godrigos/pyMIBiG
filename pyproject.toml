@@ -7,7 +7,7 @@ name = "pymibig"
 dynamic = ["version"]
 description = 'A small tool to download, match and save target sequences from MIBiG.'
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 license = "lgpl-3.0-or-later"
 keywords = ["Biosynthetic Gene Cluster", "MIBiG", "bioinformatics",
 "Secondary Metabolites"]
@@ -15,7 +15,8 @@ authors = [
   { name = "Rodrigo Aluizio", email = "r.aluizio@gmail.com" },
 ]
 classifiers = [
-  "Development Status :: 4 - Beta",
+  "Development Status :: 5 - Production/Stable",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3.12",
 ]
