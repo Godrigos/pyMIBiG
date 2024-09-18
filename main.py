@@ -6,7 +6,7 @@ import sys
 import os
 from src.download_json import download_json
 from src.download_seqs import download_seqs
-from src.save_complete_access_codes import save_complete_access_codes
+from src.save_access_codes import save_access_codes
 from src.save_sequences import save_sequences
 from src.console import console
 from src.get_args import get_args
@@ -22,8 +22,8 @@ def main() -> None:
     download_json(basedir)
     download_seqs(basedir)
 
-    access_codes = save_complete_access_codes(
-        args.target, basedir, args.completeness, args.minimal)
+    access_codes = save_access_codes(args.target, basedir, args.completeness,
+                                     args.minimal)
     save_sequences(args.target, access_codes, basedir, args.completeness,
                    args.minimal)
 

@@ -9,7 +9,7 @@ from itertools import islice
 from src.console import console
 from src.constants import METADATA
 
-def save_complete_access_codes(target:str, basedir: str, completeness: str,
+def save_access_codes(target:str, basedir: str, completeness: str,
                                minimal: bool) -> list:
     '''
     Create a txt file listing json filenames
