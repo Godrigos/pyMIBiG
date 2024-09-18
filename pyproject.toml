@@ -9,7 +9,8 @@ description = 'A small tool to download, match and save target sequences from MI
 readme = "README.md"
 requires-python = ">=3.8"
 license = "lgpl-3.0-or-later"
-keywords = []
+keywords = ["Biosynthetic Gene Cluster", "MIBiG", "bioinformatics",
+"Secondary Metabolites"]
 authors = [
   { name = "Rodrigo Aluizio", email = "r.aluizio@gmail.com" },
 ]
@@ -24,6 +25,9 @@ dependencies = [
   "Requests~=2.32",
   "rich~=13.8",
 ]
+
+[project.scripts]
+pymibig = "main:main"
 
 [project.urls]
 Documentation = "http://forgejo.taila0b24.ts.net:3000/Godrigos/pyMIBiG#readme"
