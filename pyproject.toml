@@ -50,6 +50,7 @@ omit = [
 ]
 
 [tool.coverage.paths]
+db = ["db", "*/pymibig/db"]
 pymibig = ["src", "*/pymibig/src"]
 tests = ["tests", "*/pymibig/tests"]
 
