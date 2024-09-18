@@ -46,7 +46,7 @@ extra-dependencies = [
 check = "mypy --install-types --non-interactive {args:src/pymibig tests}"
 
 [tool.coverage.run]
-source_pkgs = ["pymibig", "tests"]
+source_pkgs = ["pymibig"]
 branch = true
 parallel = true
 omit = [
@@ -56,7 +56,6 @@ omit = [
 [tool.coverage.paths]
 db = ["db", "*/pymibig/db"]
 pymibig = ["src", "*/pymibig/src"]
-tests = ["tests", "*/pymibig/tests"]
 
 [tool.coverage.report]
 exclude_lines = [
