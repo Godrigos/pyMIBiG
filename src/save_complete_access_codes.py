@@ -29,7 +29,9 @@ def save_complete_access_codes(target:str, basedir: str, completeness: str,
         if not access_codes:
             console.print('[bold yellow]Your search had no match[/bold yellow]')
             sys.exit()
-        with open(f'{target}_access_codes.txt', 'wt', encoding='utf-8') as  codes:
+        with open(
+            f'{target}_{completeness}{"_minimal" if minimal else ""}_codes.txt',
+            'wt', encoding='utf-8') as  codes:
             codes.write('\n'.join(str(i) for i in access_codes))
         return access_codes
     except PermissionError:
