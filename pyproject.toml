@@ -36,7 +36,7 @@ Issues = "http://forgejo.taila0b24.ts.net:3000/Godrigos/pyMIBiG/issues"
 Source = "http://forgejo.taila0b24.ts.net:3000/Godrigos/pyMIBiG"
 
 [tool.hatch.version]
-path = "src/__about__.py"
+path = "src/pymibig/__about__.py"
 
 [tool.hatch.envs.types]
 extra-dependencies = [
@@ -51,12 +51,12 @@ source_pkgs = ["pymibig"]
 branch = true
 parallel = true
 omit = [
-  "src/__about__.py",
+  "src/pymibig/__about__.py",
 ]
 
 [tool.coverage.paths]
-db = ["db", "*/pymibig/db"]
-pymibig = ["src", "*/pymibig/src"]
+db = ["db", "src/db"]
+pymibig = ["src/pymibig", "*/pymibig/src/pymibig"]
 
 [tool.coverage.report]
 exclude_lines = [

@@ -4,12 +4,12 @@ Find complete cluster of target species
 
 import sys
 import os
-from src.download_json import download_json
-from src.download_seqs import download_seqs
-from src.save_access_codes import save_access_codes
-from src.save_sequences import save_sequences
-from src.console import console
-from src.get_args import get_args
+from src.pymibig.download_json import download_json
+from src.pymibig.download_seqs import download_seqs
+from src.pymibig.save_access_codes import save_access_codes
+from src.pymibig.save_sequences import save_sequences
+from src.pymibig.console import console
+from src.pymibig.get_args import get_args
 
 basedir: str = os.path.dirname(__file__)
 
