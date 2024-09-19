@@ -41,7 +41,8 @@ path = "src/pymibig/__about__.py"
 [tool.hatch.build]
 exclude = [
   "/.vscode",
-  "/.gitignore"
+  "/.gitignore",
+  "/src/db/mibig*"
 ]
 include = [
   "main.py",
