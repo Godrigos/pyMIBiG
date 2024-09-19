@@ -38,6 +38,17 @@ Source = "http://forgejo.taila0b24.ts.net:3000/Godrigos/pyMIBiG"
 [tool.hatch.version]
 path = "src/pymibig/__about__.py"
 
+[tool.hatch.build]
+exclude = [
+  "/.vscode",
+  "/.gitignore"
+]
+include = [
+  "main.py",
+  "/src"
+]
+HATCH_BUILD_CLEAN = "true"
+
 [tool.hatch.envs.types]
 extra-dependencies = [
   "mypy>=1.0.0",
