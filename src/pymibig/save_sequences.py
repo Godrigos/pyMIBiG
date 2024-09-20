@@ -15,18 +15,21 @@ def save_sequences(target: str, access_codes: str, basedir: str,
     '''
     Save the desired sequences in a FASTa file.
     '''
-    console.print('[bold green]Saving desired sequences...[/bold green]')
+    #console.print('[bold green]Saving desired sequences...[/bold green]')
     desired_seqs: list = []
 
     try:
-        with tarfile.open(f'{basedir}/src/db/{DATABASE}') as tar:
-            for member in islice(tar, 1, None):
-                with tar.extractfile(member) as handle:
-                    seq = SeqIO.read(
-                        io.TextIOWrapper(handle),
-                        'genbank')
-                    if any(code in seq.id for code in access_codes):
-                        desired_seqs.append(seq)
+        with console.status(
+            '[bold green]Saving desired sequences...[/bold green]'
+            ):
+            with tarfile.open(f'{basedir}/src/db/{DATABASE}') as tar:
+                for member in islice(tar, 1, None):
+                    with tar.extractfile(member) as handle:
+                        seq = SeqIO.read(
+                            io.TextIOWrapper(handle),
+                            'genbank')
+                        if any(code in seq.id for code in access_codes):
+                            desired_seqs.append(seq)
 
         SeqIO.write(
             desired_seqs,
