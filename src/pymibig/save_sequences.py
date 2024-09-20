@@ -19,9 +19,6 @@ def save_sequences(target: str, access_codes: str, basedir: str,
     desired_seqs: list = []
 
     try:
-        # with console.status(
-        #     '[bold green]Saving desired sequences...[/bold green]'
-        #     ):
         with tarfile.open(f'{basedir}/src/db/{DATABASE}') as tar:
             for member in track(islice(tar, 1, None),
             description='[bold green]Saving desired sequences...[/bold green]',
