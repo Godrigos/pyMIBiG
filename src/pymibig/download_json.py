@@ -7,7 +7,7 @@ import sys
 import requests
 from rich.progress import track
 from src.pymibig.console import console
-from src.pymibig.constants import JSON_LINK, METADATA
+from src.pymibig.constants import JSON_LINK, METADATA, CHUNK_SIZE
 
 def download_json(basedir: str) -> None:
     '''
@@ -17,11 +17,10 @@ def download_json(basedir: str) -> None:
         try:
             resp = requests.get(JSON_LINK, stream=True, timeout=60)
             total_size = int(resp.headers.get('content-length', 0))
-            chunk_size = 10*1024
             with open(f'{basedir}/src/db/{METADATA}', mode='wb') as file:
-                for chunk in track(resp.iter_content(chunk_size=chunk_size),
+                for chunk in track(resp.iter_content(chunk_size=CHUNK_SIZE),
                 description='[bold green]Downloading MIBiG metadata...[/bold green]',
-                total=total_size / chunk_size):
+                total=total_size / CHUNK_SIZE):
                     file.write(chunk)
         except PermissionError:
             console.print('[bold red]File can not be writen.[/bold red]')
