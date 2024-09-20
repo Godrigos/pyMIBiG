@@ -6,6 +6,7 @@ import sys
 import json
 import tarfile
 from itertools import islice
+from rich.progress import track
 from src.pymibig.console import console
 from src.pymibig.constants import METADATA
 
@@ -18,17 +19,16 @@ def save_access_codes(target:str, basedir: str, completeness: str,
     access_codes: list = []
 
     try:
-        with console.status(
-                '[bold green]Saving target access codes...[/bold green]'
-            ):
-            with tarfile.open(f'{basedir}/src/db/{METADATA}') as tar:
-                for member in islice(tar, 1, None):
-                    with tar.extractfile(member) as handle:
-                        data = json.load(handle)
-                        if (data['cluster']['loci']['completeness'] == completeness and
-                        target in data['cluster']['organism_name'] and
-                        data['cluster']['minimal'] is minimal):
-                            access_codes.append(data['cluster']['mibig_accession'])
+        with tarfile.open(f'{basedir}/src/db/{METADATA}') as tar:
+            for member in track(islice(tar, 1, None),
+            description='[bold green]Saving target access codes...[/bold green]',
+            total=len(tar.getmembers())-1):
+                with tar.extractfile(member) as handle:
+                    data = json.load(handle)
+                    if (data['cluster']['loci']['completeness'] == completeness and
+                    target in data['cluster']['organism_name'] and
+                    data['cluster']['minimal'] is minimal):
+                        access_codes.append(data['cluster']['mibig_accession'])
         if not access_codes:
             console.print('[bold yellow]Your search had no match[/bold yellow]')
             sys.exit()
