@@ -9,7 +9,7 @@ from rich.progress import track
 from src.pymibig.console import console
 from src.pymibig.constants import GBK_LINK, DATABASE, CHUNK_SIZE
 
-def download_seqs(basedir: str) -> None:
+def download_nucl(basedir: str) -> None:
     '''
     Download FASTa file.
     '''
