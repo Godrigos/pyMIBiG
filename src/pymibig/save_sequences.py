@@ -9,7 +9,7 @@ from itertools import islice
 from rich.progress import track
 from Bio import SeqIO
 from src.pymibig.console import console
-from src.pymibig.constants import DATABASE
+from src.pymibig.constants import NUCLEOTIDE
 
 def save_sequences(target: str, access_codes: str, basedir: str,
                    completeness: str, minimal: bool) -> None:
@@ -19,7 +19,7 @@ def save_sequences(target: str, access_codes: str, basedir: str,
     desired_seqs: list = []
 
     try:
-        with tarfile.open(f'{basedir}/src/db/{DATABASE}') as tar:
+        with tarfile.open(f'{basedir}/src/db/{NUCLEOTIDE}') as tar:
             for member in track(islice(tar, 1, None),
             description='[bold green]Saving desired sequences...[/bold green]',
             total=len(tar.getmembers())-1):
