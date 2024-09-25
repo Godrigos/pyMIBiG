@@ -12,6 +12,9 @@ from src.pymibig.constants import JSON_LINK, METADATA, CHUNK_SIZE
 def download_json(basedir: str) -> None:
     '''
     Download JSON files tar.gz compressed.
+
+    Argumnents:
+    basedir -- main module path
     '''
     if not os.path.exists(f'{basedir}/src/db/{METADATA}'):
         try:

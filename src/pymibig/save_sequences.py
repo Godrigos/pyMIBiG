@@ -1,5 +1,5 @@
 """
-Save the matched sequences in GBK format.
+Save the matched sequences in FASTa format.
 """
 
 import sys
@@ -15,6 +15,13 @@ def save_sequences(target: str, access_codes: str, basedir: str,
                    completeness: str, minimal: bool) -> None:
     '''
     Save the desired sequences in a FASTa file.
+
+    Arguments:
+    target -- target taxon name
+    access_codes -- codes list to retrieve from database
+    basedir -- main module path
+    completeness -- Cluster completeness from mibig
+    mininal -- annotation status from mibig
     '''
     desired_seqs: list = []
 

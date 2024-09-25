@@ -1,5 +1,5 @@
 """
-Download FASTa file from MIBiG
+Download GBK files from MIBiG
 """
 
 import os
@@ -11,7 +11,10 @@ from src.pymibig.constants import GBK_LINK, NUCLEOTIDE, CHUNK_SIZE
 
 def download_nucl(basedir: str) -> None:
     '''
-    Download FASTa file.
+    Download Nucleotide GBK files tar.gz compressed.
+
+    Argumnents:
+    basedir -- main module path
     '''
     if not os.path.exists(f'{basedir}/src/db/{NUCLEOTIDE}'):
         try:

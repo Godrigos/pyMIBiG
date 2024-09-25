@@ -1,5 +1,5 @@
 """
-Constants
+Constant values
 """
 
 JSON_LINK: str = "https://dl.secondarymetabolites.org/mibig/mibig_json_3.1.tar.gz"

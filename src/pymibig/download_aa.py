@@ -10,9 +10,12 @@ from rich.progress import track
 from src.pymibig.console import console
 from src.pymibig.constants import FASTA_LINK, PROTEIN, CHUNK_SIZE
 
-def download_prot(basedir: str) -> None:
+def download_aa(basedir: str) -> None:
     '''
-    Download FASTa file.
+    Download the amino acid FASTa file gzip complessed.
+
+    Argumnents:
+    basedir -- main module path
     '''
     if not os.path.exists(f'{basedir}/src/db/{PROTEIN}'):
         try:

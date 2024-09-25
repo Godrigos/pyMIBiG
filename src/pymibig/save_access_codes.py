@@ -1,5 +1,5 @@
 """
-Save target's complete BGCs access codes.
+Save target's BGCs access codes.
 """
 
 import sys
@@ -13,9 +13,14 @@ from src.pymibig.constants import METADATA
 def save_access_codes(target:str, basedir: str, completeness: str,
                                minimal: bool) -> list:
     '''
-    Create a txt file listing json filenames
+    Create a txt file listing BGCs codes
+
+    Arguments:
+    target -- target taxon name
+    basedir -- main module path
+    completeness -- Cluster completeness from mibig
+    mininal -- annotation status from mibig
     '''
-    #console.print('[bold green]Saving target access codes...[/bold green]')
     access_codes: list = []
 
     try:

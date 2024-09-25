@@ -1,12 +1,13 @@
 """
-Find complete cluster of target species
+The main module of the package.
+Responsible for calling other modules' functions.
 """
 
 import sys
 import os
 from src.pymibig.download_json import download_json
 from src.pymibig.download_nucl import download_nucl
-from src.pymibig.download_prot import download_prot
+from src.pymibig.download_aa import download_aa
 from src.pymibig.save_access_codes import save_access_codes
 from src.pymibig.save_sequences import save_sequences
 from src.pymibig.console import console
@@ -16,13 +17,13 @@ basedir: str = os.path.dirname(__file__)
 
 def main() -> None:
     '''
-    Execute MIBiG search
+    Execute functions calls, takes no arguments and has no return.
     '''
     args = get_args()
 
     download_json(basedir)
     download_nucl(basedir)
-    download_prot(basedir)
+    download_aa(basedir)
 
     access_codes = save_access_codes(args.target, basedir, args.completeness,
                                      args.minimal)
