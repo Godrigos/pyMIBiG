@@ -9,7 +9,8 @@ from src.pymibig.download_json import download_json
 from src.pymibig.download_nucl import download_nucl
 from src.pymibig.download_aa import download_aa
 from src.pymibig.save_access_codes import save_access_codes
-from src.pymibig.save_sequences import save_sequences
+from src.pymibig.save_nucl import save_nucl
+from src.pymibig.save_aa import save_aa
 from src.pymibig.console import console
 from src.pymibig.get_args import get_args
 
@@ -27,7 +28,9 @@ def main() -> None:
 
     access_codes = save_access_codes(args.target, basedir, args.completeness,
                                      args.minimal)
-    save_sequences(args.target, access_codes, basedir, args.completeness,
+    save_nucl(args.target, access_codes, basedir, args.completeness,
+                   args.minimal)
+    save_aa(args.target, access_codes, basedir, args.completeness,
                    args.minimal)
 
     console.print(

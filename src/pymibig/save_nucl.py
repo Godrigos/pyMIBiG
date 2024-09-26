@@ -1,5 +1,5 @@
 """
-Save the matched sequences in FASTa format.
+Save the matched nucleotide sequences in FASTa format.
 """
 
 import sys
@@ -11,10 +11,10 @@ from Bio import SeqIO
 from src.pymibig.console import console
 from src.pymibig.constants import NUCLEOTIDE
 
-def save_sequences(target: str, access_codes: str, basedir: str,
+def save_nucl(target: str, access_codes: str, basedir: str,
                    completeness: str, minimal: bool) -> None:
     '''
-    Save the desired sequences in a FASTa file.
+    Save the desired nucleotide sequences in a FASTa file.
 
     Arguments:
     target -- target taxon name
@@ -28,7 +28,7 @@ def save_sequences(target: str, access_codes: str, basedir: str,
     try:
         with tarfile.open(f'{basedir}/src/db/{NUCLEOTIDE}') as tar:
             for member in track(islice(tar, 1, None),
-            description='[bold green]Saving desired sequences...[/bold green]',
+            description='[bold green]Saving nucleotide sequences...[/bold green]',
             total=len(tar.getmembers())-1):
                 with tar.extractfile(member) as handle:
                     seq = SeqIO.read(
@@ -39,7 +39,7 @@ def save_sequences(target: str, access_codes: str, basedir: str,
 
         SeqIO.write(
             desired_seqs,
-            f'{target}_{completeness}{"_minimal" if minimal else ""}.fasta',
+            f'{target}_nucl_{completeness}{"_minimal" if minimal else ""}.fasta',
             'fasta')
     except PermissionError:
         console.print(
