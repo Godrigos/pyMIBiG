@@ -26,7 +26,7 @@ def save_access_codes(target:str, basedir: str, completeness: str,
     try:
         with tarfile.open(f'{basedir}/src/db/{METADATA}') as tar:
             for member in track(islice(tar, 1, None),
-            description='[bold green]Saving target access codes...[/bold green]',
+            description='[bold green]Searching target access codes...[/bold green]',
             total=len(tar.getmembers())-1):
                 with tar.extractfile(member) as handle:
                     data = json.load(handle)
