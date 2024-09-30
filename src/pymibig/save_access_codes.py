@@ -30,9 +30,9 @@ def save_access_codes(target:str, basedir: str, completeness: str,
             total=len(tar.getmembers())-1):
                 with tar.extractfile(member) as handle:
                     data = json.load(handle)
-                    if (data['cluster']['loci']['completeness'] == completeness and
-                    target in data['cluster']['organism_name'] and
-                    data['cluster']['minimal'] is minimal):
+                    if (data['cluster']['loci']['completeness'] == completeness
+                    and (target in data['cluster']['organism_name'])
+                    and data['cluster']['minimal'] is minimal):
                         access_codes.append(data['cluster']['mibig_accession'])
         if not access_codes:
             console.print('[bold yellow]Your search had no match[/bold yellow]')
