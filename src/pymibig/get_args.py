@@ -11,7 +11,7 @@ def get_args() -> argparse.Namespace:
     '''
     parser = argparse.ArgumentParser(
         prog='pyMIBiG',
-        description='A small tool to download, match and save target '
+        description='A small tool to download, match and save taxon '
                     'sequences from MIBiG.'
     )
     parser.add_argument('organism', help='Taxon to query in database.',

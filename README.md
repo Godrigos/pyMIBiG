@@ -16,10 +16,12 @@ complete information of a given taxon.
 You may change that using optional aguments passed along with the `<target>`:
 
 ```{bash}
-usage: pymibig [-h] [-c {complete,incomplete,Unknown}] [-m] target
+usage: pyMIBiG [-h] [-c {complete,incomplete,Unknown}] [-m] organism
+
+A small tool to download, match and save taxon sequences from MIBiG.
 
 positional arguments:
-  target                Search term to query in database
+  organism              Taxon to query in database.
 
 options:
   -h, --help            show this help message and exit
