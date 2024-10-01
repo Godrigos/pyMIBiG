@@ -11,9 +11,10 @@ def get_args() -> argparse.Namespace:
     '''
     parser = argparse.ArgumentParser(
         prog='pyMIBiG',
-        description='A small tool to download, match and save target sequences from MIBiG.'
+        description='A small tool to download, match and save target '
+                    'sequences from MIBiG.'
     )
-    parser.add_argument('organism', help='Organism to query in database',
+    parser.add_argument('organism', help='Taxon to query in database.',
         type=str)
     parser.add_argument('-c', '--completeness', help='Loci completeness.',
         type=str, choices=['complete', 'incomplete', 'Unknown'],
