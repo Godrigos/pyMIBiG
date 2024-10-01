@@ -29,17 +29,20 @@ def save_aa(organism: str, access_codes: str, basedir: str,
 
         with gzip.open(f'{basedir}/src/db/{AA}', mode='rt') as gz:
             for seq in track(SeqIO.parse(gz, 'fasta'),
-            description='[bold green]Saving amino acid sequences...[/bold green]',
+            description='[bold green]Saving amino acid '
+                        'sequences...[/bold green]',
             total=total):
                 if any(code in seq.id for code in access_codes):
                     desired_seqs.append(seq)
 
         SeqIO.write(
             desired_seqs,
-            f'{organism}_aa_{completeness}{"_minimal" if minimal else ""}.fasta',
+            f'{organism}_aa_{completeness}{"_minimal" if minimal else ""}'
+             '.fasta',
             'fasta')
     except PermissionError:
         console.print(
-            '[bold red]Permission to read directory or write file denied.[/bold red]'
+            '[bold red]Permission to read directory or write file '
+            'denied.[/bold red]'
             )
         sys.exit()
