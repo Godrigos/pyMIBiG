@@ -1,6 +1,9 @@
 # pyMIBiG
 
-A small tool to download, match and save target sequences from [MIBiG](https://mibig.secondarymetabolites.org/).
+A small tool to download, match and save taxon sequences from [MIBiG](https://mibig.secondarymetabolites.org/).
+
+At this point it only searches and downloads data based on taxon. Future
+releases may bring more complex search.
 
 ## Usage
 
@@ -8,7 +11,7 @@ Download the available package of `pyMIBiG` and execute `pymibig <target>`
 where target is the term you wanto to search in MIBiG database.
 
 By default `pyMIBiG` will fetch sequences with complete cluster data and
-complete information.
+complete information of a given taxon.
 
 You may change that using optional aguments passed along with the `<target>`:
 
