@@ -9,7 +9,10 @@ def get_args() -> argparse.Namespace:
     '''
     Recieve user arguments and return them to main function.
     '''
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        prog='pyMIBiG',
+        description='A small tool to download, match and save target sequences from MIBiG.'
+    )
     parser.add_argument('organism', help='Organism to query in database',
         type=str)
     parser.add_argument('-c', '--completeness', help='Loci completeness.',
