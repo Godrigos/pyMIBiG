@@ -9,13 +9,13 @@ from Bio import SeqIO
 from src.pymibig.console import console
 from src.pymibig.constants import AA
 
-def save_aa(target: str, access_codes: str, basedir: str,
+def save_aa(organism: str, access_codes: str, basedir: str,
                    completeness: str, minimal: bool) -> None:
     '''
     Save the desired amino acis sequences in a FASTa file.
 
     Arguments:
-    target -- target taxon name
+    organism -- target taxon name
     access_codes -- codes list to retrieve from database
     basedir -- main module path
     completeness -- Cluster completeness from mibig
@@ -36,7 +36,7 @@ def save_aa(target: str, access_codes: str, basedir: str,
 
         SeqIO.write(
             desired_seqs,
-            f'{target}_aa_{completeness}{"_minimal" if minimal else ""}.fasta',
+            f'{organism}_aa_{completeness}{"_minimal" if minimal else ""}.fasta',
             'fasta')
     except PermissionError:
         console.print(

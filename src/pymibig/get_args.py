@@ -10,7 +10,7 @@ def get_args() -> argparse.Namespace:
     Recieve user arguments and return them to main function.
     '''
     parser = argparse.ArgumentParser()
-    parser.add_argument('target', help='Search term to query in database',
+    parser.add_argument('organism', help='Organism to query in database',
         type=str)
     parser.add_argument('-c', '--completeness', help='Loci completeness.',
         type=str, choices=['complete', 'incomplete', 'Unknown'],

@@ -10,13 +10,13 @@ from rich.progress import track
 from src.pymibig.console import console
 from src.pymibig.constants import METADATA
 
-def save_access_codes(target:str, basedir: str, completeness: str,
+def save_access_codes(organism:str, basedir: str, completeness: str,
                                minimal: bool) -> list:
     '''
     Create a txt file listing BGCs codes
 
     Arguments:
-    target -- target taxon name
+    organism -- target taxon name
     basedir -- main module path
     completeness -- Cluster completeness from mibig
     mininal -- annotation status from mibig
@@ -31,14 +31,14 @@ def save_access_codes(target:str, basedir: str, completeness: str,
                 with tar.extractfile(member) as handle:
                     data = json.load(handle)
                     if (data['cluster']['loci']['completeness'] == completeness
-                    and (target in data['cluster']['organism_name'])
+                    and (organism in data['cluster']['organism_name'])
                     and data['cluster']['minimal'] is minimal):
                         access_codes.append(data['cluster']['mibig_accession'])
         if not access_codes:
             console.print('[bold yellow]Your search had no match[/bold yellow]')
             sys.exit()
         with open(
-            f'{target}_{completeness}{"_minimal" if minimal else ""}_codes.txt',
+            f'{organism}_{completeness}{"_minimal" if minimal else ""}_codes.txt',
             'wt', encoding='utf-8') as  codes:
             codes.write('\n'.join(str(i) for i in access_codes))
         return access_codes
