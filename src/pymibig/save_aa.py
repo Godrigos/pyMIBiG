@@ -9,8 +9,7 @@ from Bio import SeqIO
 from src.pymibig.console import console
 from src.pymibig.constants import AA
 
-def save_aa(organism: str, access_codes: str, basedir: str,
-                   completeness: str, minimal: bool) -> None:
+def save_aa(args, access_codes: str, basedir: str) -> None:
     '''
     Save the desired amino acid sequences in a FASTa file.
 
@@ -37,7 +36,7 @@ def save_aa(organism: str, access_codes: str, basedir: str,
 
         SeqIO.write(
             desired_seqs,
-            f'{organism}_aa_{completeness}{"_minimal" if minimal else ""}'
+            f'{args.organism}_aa_{args.completeness}{"_minimal" if args.minimal else ""}'
              '.fasta',
             'fasta')
     except PermissionError:

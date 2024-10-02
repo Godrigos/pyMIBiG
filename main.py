@@ -26,14 +26,9 @@ def main() -> None:
     download_nucl(basedir)
     download_aa(basedir)
 
-    access_codes = save_access_codes(
-        args.organism, args.product, args.biosynt, basedir, args.completeness,
-        args.minimal
-        )
-    save_nucl(args.organism, access_codes, basedir, args.completeness,
-                   args.minimal)
-    save_aa(args.organism, access_codes, basedir, args.completeness,
-                   args.minimal)
+    access_codes = save_access_codes(args, basedir)
+    save_nucl(args, access_codes, basedir)
+    save_aa(args, access_codes, basedir)
 
     console.print(
         '[bold blue]Task completed! Check your result files.[/bold blue]'

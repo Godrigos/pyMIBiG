@@ -11,8 +11,7 @@ from src.pymibig.console import console
 from src.pymibig.treat_args import treat_args
 from src.pymibig.constants import METADATA
 
-def save_access_codes(organism: str, product: str, biosynt: str,
-                      basedir: str, completeness: str, minimal: bool) -> list:
+def save_access_codes(args, basedir) -> list:
     '''
     Create a txt file listing BGCs codes
 
@@ -32,15 +31,14 @@ def save_access_codes(organism: str, product: str, biosynt: str,
             total=len(tar.getmembers())-1):
                 with tar.extractfile(member) as handle:
                     data = json.load(handle)
-                if treat_args(data, organism, product, biosynt,
-                              completeness, minimal):
+                if treat_args(data, args):
                     access_codes.append(data['cluster']['mibig_accession'])
         if not access_codes:
             console.print('[bold yellow]Your search had no '
                           'match[/bold yellow]')
             sys.exit()
         with open(
-            f'{organism}_{completeness}{"_minimal" if minimal else ""}'
+            f'{args.organism}_{args.completeness}{"_minimal" if args.minimal else ""}'
              '_codes.txt', 'wt', encoding='utf-8') as  codes:
             codes.write('\n'.join(str(i) for i in access_codes))
         return access_codes

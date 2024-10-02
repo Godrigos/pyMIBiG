@@ -11,8 +11,7 @@ from Bio import SeqIO
 from src.pymibig.console import console
 from src.pymibig.constants import NUCLEOTIDE
 
-def save_nucl(organism: str, access_codes: str, basedir: str,
-                   completeness: str, minimal: bool) -> None:
+def save_nucl(args, access_codes: str, basedir: str) -> None:
     '''
     Save the desired nucleotide sequences in a FASTa file.
 
@@ -40,7 +39,7 @@ def save_nucl(organism: str, access_codes: str, basedir: str,
 
         SeqIO.write(
             desired_seqs,
-            f'{organism}_nucl_{completeness}{"_minimal" if minimal else ""}'
+            f'{args.organism}_nucl_{args.completeness}{"_minimal" if args.minimal else ""}'
              '.fasta',
             'fasta')
     except PermissionError:
