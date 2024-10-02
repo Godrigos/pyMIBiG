@@ -8,10 +8,11 @@ import tarfile
 from itertools import islice
 from rich.progress import track
 from src.pymibig.console import console
+from src.pymibig.treat_args import treat_args
 from src.pymibig.constants import METADATA
 
-def save_access_codes(organism:str, basedir: str, completeness: str,
-                               minimal: bool) -> list:
+def save_access_codes(organism: str, product: str, biosynt: str,
+                      basedir: str, completeness: str, minimal: bool) -> list:
     '''
     Create a txt file listing BGCs codes
 
@@ -31,9 +32,8 @@ def save_access_codes(organism:str, basedir: str, completeness: str,
             total=len(tar.getmembers())-1):
                 with tar.extractfile(member) as handle:
                     data = json.load(handle)
-                if (data['cluster']['loci']['completeness'] == completeness
-                and (organism in data['cluster']['organism_name'])
-                and data['cluster']['minimal'] is minimal):
+                if treat_args(data, organism, product, biosynt,
+                              completeness, minimal):
                     access_codes.append(data['cluster']['mibig_accession'])
         if not access_codes:
             console.print('[bold yellow]Your search had no '
@@ -41,8 +41,7 @@ def save_access_codes(organism:str, basedir: str, completeness: str,
             sys.exit()
         with open(
             f'{organism}_{completeness}{"_minimal" if minimal else ""}'
-             '_codes.txt',
-            'wt', encoding='utf-8') as  codes:
+             '_codes.txt', 'wt', encoding='utf-8') as  codes:
             codes.write('\n'.join(str(i) for i in access_codes))
         return access_codes
     except PermissionError:
