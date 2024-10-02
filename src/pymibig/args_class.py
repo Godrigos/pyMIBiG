@@ -14,6 +14,7 @@ class Args:
         self.minimal = args.minimal
         self.prefix: str = ''
 
+    @property
     def create_prefix(self) -> str:
         '''
         Take user arguments and compose filenames prefix with them.

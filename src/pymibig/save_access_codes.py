@@ -38,7 +38,7 @@ def save_access_codes(args, basedir) -> list:
                           'match[/bold yellow]')
             sys.exit()
         with open(
-            f'{args.create_prefix()}_codes.txt', 'wt',
+            f'{args.create_prefix}_codes.txt', 'wt',
             encoding='utf-8'
             ) as  codes:
             codes.write('\n'.join(str(i) for i in access_codes))
