@@ -3,9 +3,10 @@ Get arguments from user.
 """
 
 import argparse
+from src.pymibig.args_class import Args
 
 
-def get_args() -> argparse.Namespace:
+def get_args() -> Args:
     '''
     Recieve user arguments and return them to main function.
     '''
@@ -34,4 +35,4 @@ def get_args() -> argparse.Namespace:
         parser.error('At least one of the following arguments is requires: '
                      'organism, product, biosynt')
 
-    return args
+    return Args(args)

@@ -9,7 +9,6 @@ from itertools import islice
 from rich.progress import track
 from Bio import SeqIO
 from src.pymibig.console import console
-from src.pymibig.create_filename_prefix import create_filename_prefix
 from src.pymibig.constants import NUCLEOTIDE
 
 def save_nucl(args, access_codes: str, basedir: str) -> None:
@@ -40,7 +39,7 @@ def save_nucl(args, access_codes: str, basedir: str) -> None:
 
         SeqIO.write(
             desired_seqs,
-            f'{create_filename_prefix(args)}_nucl.fasta', 'fasta')
+            f'{args.create_prefix()}_nucl.fasta', 'fasta')
     except PermissionError:
         console.print(
             '[bold red]Permission to read directory or write file '
