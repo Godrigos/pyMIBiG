@@ -12,7 +12,7 @@ from src.pymibig.constants import AA
 def save_aa(organism: str, access_codes: str, basedir: str,
                    completeness: str, minimal: bool) -> None:
     '''
-    Save the desired amino acis sequences in a FASTa file.
+    Save the desired amino acid sequences in a FASTa file.
 
     Arguments:
     organism -- target taxon name
