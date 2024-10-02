@@ -7,6 +7,7 @@ import gzip
 from rich.progress import track
 from Bio import SeqIO
 from src.pymibig.console import console
+from src.pymibig.create_filename_prefix import create_filename_prefix
 from src.pymibig.constants import AA
 
 def save_aa(args, access_codes: str, basedir: str) -> None:
@@ -36,9 +37,7 @@ def save_aa(args, access_codes: str, basedir: str) -> None:
 
         SeqIO.write(
             desired_seqs,
-            f'{args.organism}_aa_{args.completeness}{"_minimal" if args.minimal else ""}'
-             '.fasta',
-            'fasta')
+            f'{create_filename_prefix(args)}_aa.fasta', 'fasta')
     except PermissionError:
         console.print(
             '[bold red]Permission to read directory or write file '

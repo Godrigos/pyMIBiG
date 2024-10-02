@@ -9,6 +9,7 @@ from itertools import islice
 from rich.progress import track
 from src.pymibig.console import console
 from src.pymibig.treat_args import treat_args
+from src.pymibig.create_filename_prefix import create_filename_prefix
 from src.pymibig.constants import METADATA
 
 def save_access_codes(args, basedir) -> list:
@@ -38,8 +39,9 @@ def save_access_codes(args, basedir) -> list:
                           'match[/bold yellow]')
             sys.exit()
         with open(
-            f'{args.organism}_{args.completeness}{"_minimal" if args.minimal else ""}'
-             '_codes.txt', 'wt', encoding='utf-8') as  codes:
+            f'{create_filename_prefix(args)}_codes.txt', 'wt',
+            encoding='utf-8'
+            ) as  codes:
             codes.write('\n'.join(str(i) for i in access_codes))
         return access_codes
     except PermissionError:
