@@ -24,13 +24,13 @@ You can also install it using `pip`. In a virtual environment execute:
 pip install pymibig
 ```
 
-By default `pyMIBiG` will fetch sequences with complete cluster data and
-complete information of a given target.
+By default `pyMIBiG` will fetch all cluster data and information of a given target.
 
 You may change that using optional aguments passed along with the `<target>`:
 
 ```{bash}
-usage: pyMIBiG [-h] [-o ORGANISM] [-p PRODUCT] [-b BIOSYNT] [-c {complete,incomplete,unknown}] [-m]
+usage: pyMIBiG [-h] [-o ORGANISM] [-p PRODUCT] [-b BIOSYNT] [-c {complete,incomplete,unknown,all}]
+               [-i {maximum,minimal,all}]
 
 A small tool to download, match and save targeted sequences from MIBiG.
 
@@ -42,9 +42,10 @@ options:
                         Compound to query in database.
   -b BIOSYNT, --biosynt BIOSYNT
                         Biosynthetic class to query in database.
-  -c {complete,incomplete,unknown}, --completeness {complete,incomplete,unknown}
+  -c {complete,incomplete,unknown,all}, --completeness {complete,incomplete,unknown,all}
                         Loci completeness.
-  -m, --minimal         Minimal annotation.
+  -i {maximum,minimal,all}, --information {maximum,minimal,all}
+                        Minimal annotation.
 ```
 
 You have to use at least one of the following arguments: organism, product or
