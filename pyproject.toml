@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "pymibig"
 dynamic = ["version"]
-description = 'A small tool to download, match and save target sequences from MIBiG.'
+description = 'A small tool to download, match and save targeted sequences from MIBiG.'
 readme = "README.md"
 requires-python = ">=3.10"
 license = "lgpl-3.0-or-later"

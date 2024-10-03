@@ -15,14 +15,14 @@ Download the available package of `pyMIBiG` and execute `pymibig -<target>`
 where target is the term you wanto to search in MIBiG database.
 
 By default `pyMIBiG` will fetch sequences with complete cluster data and
-complete information of a given taxon.
+complete information of a given target.
 
 You may change that using optional aguments passed along with the `<target>`:
 
 ```{bash}
 usage: pyMIBiG [-h] [-o ORGANISM] [-p PRODUCT] [-b BIOSYNT] [-c {complete,incomplete,unknown}] [-m]
 
-A small tool to download, match and save taxon sequences from MIBiG.
+A small tool to download, match and save targeted sequences from MIBiG.
 
 options:
   -h, --help            show this help message and exit

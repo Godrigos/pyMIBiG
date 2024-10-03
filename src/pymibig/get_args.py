@@ -12,7 +12,7 @@ def get_args() -> Args:
     '''
     parser = argparse.ArgumentParser(
         prog='pyMIBiG',
-        description='A small tool to download, match and save taxon '
+        description='A small tool to download, match and save targeted '
                     'sequences from MIBiG.'
     )
     parser.add_argument('-o', '--organism',
