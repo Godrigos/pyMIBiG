@@ -1,5 +1,9 @@
 # pyMIBiG
 
+[![PyPI - Version](https://img.shields.io/pypi/v/pymibig.svg)](https://pypi.org/project/pymibig)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/pymibig)
+
+
 A small tool to download, match and save sequences from [MIBiG](https://mibig.secondarymetabolites.org/).
 
 `pyMIBiG` can search by "organism name", "compound / product" and / or
