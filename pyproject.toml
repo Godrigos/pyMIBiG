@@ -25,6 +25,7 @@ dependencies = [
   "biopython~=1.84",
   "Requests~=2.32",
   "rich~=13.9",
+  "pandas~=2.2",
 ]
 
 [project.scripts]
