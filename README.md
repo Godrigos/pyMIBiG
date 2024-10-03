@@ -14,6 +14,12 @@ that yield fewer results, you will be better using the web interface.
 Download the available package of `pyMIBiG` and execute `pymibig -<target>`
 where target is the term you wanto to search in MIBiG database.
 
+You can also install it using `pip`. In a virtual environment execute:
+
+```{python}
+pip install pymibig
+```
+
 By default `pyMIBiG` will fetch sequences with complete cluster data and
 complete information of a given target.
 
