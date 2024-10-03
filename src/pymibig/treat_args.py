@@ -8,11 +8,8 @@ def treat_args(data, args) -> bool:
     presence of an argument and include it in treatment
 
     Arguments:
-    organism -- target organism name
-    product -- target compound name
-    biosynt -- target biosynthetic class name
-    completeness -- Cluster completeness from mibig
-    mininal -- annotation status from mibig
+    data -- MIBiG metadata from json files
+    args -- object of class Args containing user inputs
     '''
 
     add: bool = True

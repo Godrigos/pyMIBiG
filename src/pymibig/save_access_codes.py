@@ -16,10 +16,8 @@ def save_access_codes(args, basedir) -> list:
     Create a txt file listing BGCs codes
 
     Arguments:
-    organism -- target taxon name
+    args -- object of class Args containing user inputs
     basedir -- main module path
-    completeness -- Cluster completeness from mibig
-    mininal -- annotation status from mibig
     '''
     access_codes: list = []
 

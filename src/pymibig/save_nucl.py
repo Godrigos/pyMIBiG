@@ -16,11 +16,9 @@ def save_nucl(args, access_codes: str, basedir: str) -> None:
     Save the desired nucleotide sequences in a FASTa file.
 
     Arguments:
-    organism -- target taxon name
+    args -- object of class Args containing user inputs
     access_codes -- codes list to retrieve from database
     basedir -- main module path
-    completeness -- Cluster completeness from mibig
-    mininal -- annotation status from mibig
     '''
     desired_seqs: list = []
 

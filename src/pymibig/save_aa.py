@@ -14,11 +14,8 @@ def save_aa(args, access_codes: str, basedir: str) -> None:
     Save the desired amino acid sequences in a FASTa file.
 
     Arguments:
-    organism -- target taxon name
-    access_codes -- codes list to retrieve from database
+    args -- object of class Args containing user inputs
     basedir -- main module path
-    completeness -- Cluster completeness from mibig
-    mininal -- annotation status from mibig
     '''
     desired_seqs: list = []
 
