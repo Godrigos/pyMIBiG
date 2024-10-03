@@ -31,6 +31,10 @@ def treat_args(data, args) -> bool:
             data['cluster']['loci']['completeness'].lower()
             == args.completeness.lower()
             )
-    add &= data['cluster']['minimal'] is args.minimal
+    # if all ignore this parameter
+    if args.minimal  == 'maximum':
+        add &= data['cluster']['minimal'] is False
+    elif args.minimal == 'minimal':
+        add &= data['cluster']['minimal'] is True
 
     return add
