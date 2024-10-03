@@ -21,7 +21,8 @@ def save_access_codes(args, basedir) -> list:
     basedir -- main module path
     '''
     df = pd.DataFrame(
-        columns=['Code', 'Organism', 'Compounds', 'Biosynthetic Class']
+        columns=['Code', 'Organism', 'Compounds', 'Biosynthetic Class',
+                 'Completeness', 'Minimal']
         )
 
     try:
@@ -41,6 +42,8 @@ def save_access_codes(args, basedir) -> list:
                     df.loc[member, 'Biosynthetic Class'] = ', '.join(
                         data['cluster']['biosyn_class']
                         )
+                    df.loc[member, 'Completeness'] = data['cluster']['loci']['completeness']
+                    df.loc[member, 'Minimal'] = data['cluster']['minimal']
         if df.empty:
             console.print('[bold yellow]Your search had no '
                           'match[/bold yellow]')
