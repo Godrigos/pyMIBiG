@@ -24,7 +24,7 @@ def get_args() -> Args:
                         help='Biosynthetic class to query in database.',
                         type=str)
     parser.add_argument('-c', '--completeness', help='Loci completeness.',
-        type=str, choices=['complete', 'incomplete', 'unknown'],
+        type=str, choices=['complete', 'incomplete', 'unknown', 'all'],
         default='complete')
     parser.add_argument('-m', '--minimal', action="store_true",
                         help='Minimal annotation.')

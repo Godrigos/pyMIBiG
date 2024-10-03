@@ -20,7 +20,7 @@ def save_access_codes(args, basedir) -> list:
     args -- object of class Args containing user inputs
     basedir -- main module path
     '''
-    access_codes = pd.DataFrame(
+    df = pd.DataFrame(
         columns=['Code', 'Organism', 'Compounds', 'Biosynthetic Class']
         )
 
@@ -33,22 +33,22 @@ def save_access_codes(args, basedir) -> list:
                 with tar.extractfile(member) as handle:
                     data = json.load(handle)
                 if treat_args(data, args):
-                    access_codes.loc[member, 'Code'] = data['cluster']['mibig_accession']
-                    access_codes.loc[member, 'Organism'] = data['cluster']['organism_name']
-                    access_codes.loc[member, 'Compounds'] = ', '.join(
+                    df.loc[member, 'Code'] = data['cluster']['mibig_accession']
+                    df.loc[member, 'Organism'] = data['cluster']['organism_name']
+                    df.loc[member, 'Compounds'] = ', '.join(
                         [c.get('compound') for c in data['cluster']['compounds']]
                         )
-                    access_codes.loc[member, 'Biosynthetic Class'] = ', '.join(
+                    df.loc[member, 'Biosynthetic Class'] = ', '.join(
                         data['cluster']['biosyn_class']
                         )
-        if access_codes.empty:
+        if df.empty:
             console.print('[bold yellow]Your search had no '
                           'match[/bold yellow]')
             sys.exit()
-        access_codes.to_csv(
+        df.to_csv(
             f'{args.create_prefix}_codes.tsv', sep='\t', index=False
             )
-        return access_codes['Code'].to_list()
+        return df['Code'].to_list()
     except PermissionError:
         console.print(
             '[bold red]Permission to read directory or write '

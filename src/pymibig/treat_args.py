@@ -26,11 +26,11 @@ def treat_args(data, args) -> bool:
         add &= args.biosynt.lower() in [
             b.lower() for b in data['cluster']['biosyn_class']
             ]
-
-    add &= (
-        data['cluster']['loci']['completeness'].lower()
-        == args.completeness.lower()
-        )
+    if args.completeness != 'all':
+        add &= (
+            data['cluster']['loci']['completeness'].lower()
+            == args.completeness.lower()
+            )
     add &= data['cluster']['minimal'] is args.minimal
 
     return add
