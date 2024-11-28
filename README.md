@@ -66,6 +66,9 @@ several GBK files;
 of all genes from MIBiG entries are also available in a single compressed
 FASTa file.
 
+## Reference
+[MIBiG 4.0: Advancing Biosynthetic Gene Cluster Curation through Global Collaboration.](https://doi.org/10.1093/nar/gkae1115)
+
 ## License
 
 `pyMiBiG` is distributed under the terms of the [LGPL 3.0](https://spdx.org/licenses/LGPL-3.0-or-later.html) license.
