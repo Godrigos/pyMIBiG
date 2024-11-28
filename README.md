@@ -56,13 +56,13 @@ On first execution `pyMIBiG` will download the database files from
 so an internet connection will be needed, after that it can be used offline.
 
 As for this release `pyMIBiG` will download from MIBiG
-**Version 3.1 (October 7th, 2022)** the:
-- [Metadata](https://dl.secondarymetabolites.org/mibig/mibig_json_3.1.tar.gz)
+**Version 4.0 (November 15, 2024)** the:
+- [Metadata](https://dl.secondarymetabolites.org/mibig/mibig_json_4.0.tar.gz)
 in compressed format, including several JSON files;
-- [Nucleotide](https://dl.secondarymetabolites.org/mibig/mibig_gbk_3.1.tar.gz)
+- [Nucleotide](https://dl.secondarymetabolites.org/mibig/mibig_gbk_4.0.tar.gz)
 sequences of the biosynthetic gene clusters in compressed format, including
 several GBK files;
-- [Amino acid sequence translations](https://dl.secondarymetabolites.org/mibig/mibig_prot_seqs_3.1.fasta)
+- [Amino acid sequence translations](https://dl.secondarymetabolites.org/mibig/mibig_prot_seqs_4.0.fasta)
 of all genes from MIBiG entries are also available in a single compressed
 FASTa file.
 
