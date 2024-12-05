@@ -65,6 +65,15 @@ several GBK files;
 of all genes from MIBiG entries are also available in a single compressed
 FASTa file.
 
+## Output
+
+`pyMIBiG` will create three files:
+- a FASTa containing nucleotide sequences
+- a FASTa containing aminoacid sequences
+- a tab-separated value table with information on the selected sequences
+
+The filenames will reflect the parameters used when searching the database.
+
 ## Reference
 [MIBiG 4.0: Advancing Biosynthetic Gene Cluster Curation through Global Collaboration.](https://doi.org/10.1093/nar/gkae1115)
 
