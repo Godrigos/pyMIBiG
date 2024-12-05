@@ -6,9 +6,9 @@
 
 A small tool to download, match and save sequences from [MIBiG](https://mibig.secondarymetabolites.org/).
 
-`pyMIBiG` can search by "organism name", "compound / product" and / or
-"biosynthetic class" as intersections of every argument added. Which means
-that the more arguments you add more restrictive your search becomes.
+`pyMIBiG` can search by "organism name", "compound / product",
+"biosynthetic class" and "entry quality" as intersections of every argument added.
+Which means that the more arguments you add more restrictive your search becomes.
 It uses the available MIBiG download files which have less information then
 those returned when using their web search. So, for very specific queries,
 that yield fewer results, you will be better using the web interface.
@@ -20,17 +20,16 @@ where target is the term you wanto to search in MIBiG database.
 
 You can also install it using `pip`. In a virtual environment execute:
 
-```{python}
+```{console}
 pip install pymibig
 ```
 
-By default `pyMIBiG` will fetch all cluster data and information of a given target.
+By default `pyMIBiG` will fetch all entry data and information of a given target.
 
 You may change that using optional aguments passed along with the `<target>`:
 
-```{bash}
-usage: pyMIBiG [-h] [-o ORGANISM] [-p PRODUCT] [-b BIOSYNT] [-c {complete,incomplete,unknown,all}]
-               [-i {maximum,minimal,all}]
+```{console}
+usage: pyMIBiG [-h] [-o ORGANISM] [-p PRODUCT] [-b BIOSYNT] [-c {complete,incomplete,unknown,all}] [-q {low,medium,high,questionable,all}]
 
 A small tool to download, match and save targeted sequences from MIBiG.
 
@@ -44,8 +43,8 @@ options:
                         Biosynthetic class to query in database.
   -c {complete,incomplete,unknown,all}, --completeness {complete,incomplete,unknown,all}
                         Loci completeness.
-  -i {maximum,minimal,all}, --information {maximum,minimal,all}
-                        Minimal annotation.
+  -q {low,medium,high,questionable,all}, --quality {low,medium,high,questionable,all}
+                        Entry quality level.
 ```
 
 You have to use at least one of the following arguments: organism, product or

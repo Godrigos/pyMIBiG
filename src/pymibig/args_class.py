@@ -11,7 +11,7 @@ class Args:
         self.product = args.product
         self.biosynt = args.biosynt
         self.completeness = args.completeness
-        self.minimal = args.information
+        self.quality = args.quality
         self.prefix: str = ''
 
     @property
@@ -24,8 +24,8 @@ class Args:
         prod = f'{self.product}_' if self.product else ""
         bio = f'{self.biosynt}_' if self.biosynt else ""
         comp = f'{self.completeness}'
-        mini = f'_{self.minimal}'
+        quali = f'_{self.quality}'
 
-        self.prefix = org + prod + bio + comp + mini
+        self.prefix = org + prod + bio + comp + quali
 
         return self.prefix

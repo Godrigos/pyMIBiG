@@ -16,25 +16,24 @@ def treat_args(data, args) -> bool:
 
     if args.organism:
         add &= (
-            args.organism.lower() in data['cluster']['organism_name'].lower()
+            args.organism.lower() in data['taxonomy']['name'].lower()
             )
     if args.product:
         add &= args.product.lower() in [
-            c.get('compound').lower() for c in data['cluster']['compounds']
+            c.get('name').lower() for c in data['compounds']
             ]
     if args.biosynt:
         add &= args.biosynt.lower() in [
-            b.lower() for b in data['cluster']['biosyn_class']
+            b.get('class').lower() for b in data['biosynthesis']['classes']
             ]
     if args.completeness != 'all':
         add &= (
-            data['cluster']['loci']['completeness'].lower()
+            data['completeness'].lower()
             == args.completeness.lower()
             )
-    # if all ignore this parameter
-    if args.minimal  == 'maximum':
-        add &= data['cluster']['minimal'] is False
-    elif args.minimal == 'minimal':
-        add &= data['cluster']['minimal'] is True
+    if args.quality != 'all':
+        add &= (
+            data['quality'].lower() == args.quality.lower()
+            )
 
     return add

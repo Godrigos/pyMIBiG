@@ -34,16 +34,16 @@ def save_access_codes(args, basedir) -> list:
                 with tar.extractfile(member) as handle:
                     data = json.load(handle)
                 if treat_args(data, args):
-                    df.loc[member, 'Code'] = data['cluster']['mibig_accession']
-                    df.loc[member, 'Organism'] = data['cluster']['organism_name']
+                    df.loc[member, 'Code'] = data['accession']
+                    df.loc[member, 'Organism'] = data['taxonomy']['name']
                     df.loc[member, 'Compounds'] = ', '.join(
-                        [c.get('compound') for c in data['cluster']['compounds']]
+                        [c.get('name') for c in data['compounds']]
                         )
                     df.loc[member, 'Biosynthetic Class'] = ', '.join(
-                        data['cluster']['biosyn_class']
+                        [b.get('class') for b in data['biosynthesis']['classes']]
                         )
-                    df.loc[member, 'Completeness'] = data['cluster']['loci']['completeness']
-                    df.loc[member, 'Minimal'] = data['cluster']['minimal']
+                    df.loc[member, 'Completeness'] = data['completeness']
+                    df.loc[member, 'Quality'] = data['quality']
         if df.empty:
             console.print('[bold yellow]Your search had no '
                           'match[/bold yellow]')

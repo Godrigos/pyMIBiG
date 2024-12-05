@@ -26,8 +26,8 @@ def get_args() -> Args:
     parser.add_argument('-c', '--completeness', help='Loci completeness.',
         type=str, choices=['complete', 'incomplete', 'unknown', 'all'],
         default='all')
-    parser.add_argument('-i', '--information', help='Minimal annotation.',
-        type=str, choices=['maximum', 'minimal', 'all'],
+    parser.add_argument('-q', '--quality', help='Entry quality level.',
+        type=str, choices=['low', 'medium', 'high', 'questionable', 'all'],
         default='all')
 
     args = parser.parse_args()
