@@ -32,9 +32,9 @@ dependencies = [
 pymibig = "main:main"
 
 [project.urls]
-Documentation = "https://forgejo.taila0b24.ts.net/Godrigos/pyMIBiG#readme"
-Issues = "https://forgejo.taila0b24.ts.net/Godrigos/pyMIBiG/issues"
-Source = "https://forgejo.taila0b24.ts.net/Godrigos/pyMIBiG"
+Documentation = "https://github.com/Godrigos/pyMIBiG#readme"
+Issues = "https://github.com/Godrigos/pyMIBiG/issues"
+Source = "https://github.com/Godrigos/pyMIBiG"
 
 [tool.hatch.version]
 path = "src/pymibig/__about__.py"
