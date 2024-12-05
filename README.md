@@ -54,7 +54,7 @@ On first execution `pyMIBiG` will download the database files from
 [MIBiG](https://mibig.secondarymetabolites.org/download) and save locally,
 so an internet connection will be needed, after that it can be used offline.
 
-As for this release `pyMIBiG` will download from MIBiG
+Latest release of `pyMIBiG` will download from MIBiG
 **Version 4.0 (November 15, 2024)** the:
 - [Metadata](https://dl.secondarymetabolites.org/mibig/mibig_json_4.0.tar.gz)
 in compressed format, including several JSON files;
@@ -64,6 +64,8 @@ several GBK files;
 - [Amino acid sequence translations](https://dl.secondarymetabolites.org/mibig/mibig_prot_seqs_4.0.fasta)
 of all genes from MIBiG entries are also available in a single compressed
 FASTa file.
+
+Version 1.2.7 uses MIBiG **Version 3.1 (October 7, 2022)**.
 
 ## Output
 
