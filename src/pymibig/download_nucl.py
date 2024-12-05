@@ -22,7 +22,7 @@ def download_nucl(basedir: str) -> None:
             total_size = int(resp.headers.get('content-length', 0))
             with open(f'{basedir}/src/db/{NUCLEOTIDE}', mode='wb') as file:
                 for chunk in track(resp.iter_content(chunk_size=CHUNK_SIZE),
-                description='[bold green]Downloading sequences as '
+                description='[bold green]Downloading nucleotides as '
                             'GBK...[/bold green]',
                 total=total_size / CHUNK_SIZE):
                     file.write(chunk)
