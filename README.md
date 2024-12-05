@@ -74,6 +74,8 @@ FASTa file.
 
 The filenames will reflect the parameters used when searching the database.
 
+Ps.: Retired entries will be presented in the table, but there will be no sequences for them.
+
 ## Reference
 [MIBiG 4.0: Advancing Biosynthetic Gene Cluster Curation through Global Collaboration.](https://doi.org/10.1093/nar/gkae1115)
 

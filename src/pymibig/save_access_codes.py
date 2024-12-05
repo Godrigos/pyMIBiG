@@ -22,7 +22,7 @@ def save_access_codes(args, basedir) -> list:
     '''
     df = pd.DataFrame(
         columns=['Code', 'Organism', 'Compounds', 'Biosynthetic Class',
-                 'Completeness', 'Quality']
+                 'Completeness', 'Quality', 'Status']
         )
 
     try:
@@ -44,6 +44,7 @@ def save_access_codes(args, basedir) -> list:
                         )
                     df.loc[member, 'Completeness'] = data['completeness']
                     df.loc[member, 'Quality'] = data['quality']
+                    df.loc[member, 'Status'] = data['status']
         if df.empty:
             console.print('[bold yellow]Your search had no '
                           'match[/bold yellow]')
