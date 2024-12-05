@@ -33,4 +33,4 @@ def download_nucl(basedir: str) -> None:
             console.print('[bold red]Connection error or timed '
                           'out.[/bold red]')
     else:
-        console.print('[bold green]Loading GBK sequences...[/bold green]')
+        console.print('[bold green]Loading nucleotide sequences...[/bold green]')

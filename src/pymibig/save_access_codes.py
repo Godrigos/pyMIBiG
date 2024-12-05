@@ -22,7 +22,7 @@ def save_access_codes(args, basedir) -> list:
     '''
     df = pd.DataFrame(
         columns=['Code', 'Organism', 'Compounds', 'Biosynthetic Class',
-                 'Completeness', 'Minimal']
+                 'Completeness', 'Quality']
         )
 
     try:
