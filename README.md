@@ -84,3 +84,8 @@ Ps.: Retired entries will be presented in the table, but there will be no sequen
 ## License
 
 `pyMiBiG` is distributed under the terms of the [LGPL 3.0](https://spdx.org/licenses/LGPL-3.0-or-later.html) license.
+
+## Disclaimer
+
+`pyMIBiG` is a free software and comes with ABSOLUTELY NO WARRANTY. Use at your own risk.
+The developer of `pyMIBiG` has no relationship of any kind with [MIBiG](https://mibig.secondarymetabolites.org/) or the [Genomic Standards Consortium](https://www.gensc.org/).
