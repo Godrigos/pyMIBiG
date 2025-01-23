@@ -22,7 +22,7 @@ classifiers = [
 ]
 dependencies = [
   "Bio~=1.7",
-  "biopython~=1.84",
+  "biopython~=1.85",
   "Requests~=2.32",
   "rich~=13.9",
   "pandas~=2.2",
